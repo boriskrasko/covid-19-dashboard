@@ -285,6 +285,7 @@ input:focus::placeholder {
 
 .graph {
 	grid-area: graph;
+	overflow: hidden;
 }
 
 /* Global Cases */
@@ -337,7 +338,7 @@ input:focus::placeholder {
 	display: flex;
 	justify-content: center;
 	overflow: hidden;
-  background: url('assets/images/map.png');
+  background: url('assets/images/map.svg');
   background-position: center;
   background-size:cover;
   background-repeat: no-repeat;
