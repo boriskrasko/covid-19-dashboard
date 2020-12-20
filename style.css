@@ -337,7 +337,7 @@ input:focus::placeholder {
 	display: flex;
 	justify-content: center;
 	overflow: hidden;
-  background: url('map.png');
+  background: url('assets/images/map.png');
   background-position: center;
   background-size:cover;
   background-repeat: no-repeat;
