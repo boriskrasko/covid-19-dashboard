@@ -337,10 +337,11 @@ input:focus::placeholder {
 	display: flex;
 	justify-content: center;
 	overflow: hidden;
-  background: url('map.png');
+  background: url('assets/images/map.png');
   background-position: center;
   background-size:cover;
   background-repeat: no-repeat;
+
 }
 
 .bookmarks, .legend, .basemaps {
@@ -446,29 +447,29 @@ input:focus::placeholder {
 }
 
 .legend .ellipse{
-  border-radius: 50%;
-  background: var(--blue);
-  margin-right: 10px;
+    border-radius: 50%;
+    background: var(--blue);
+    margin-right: 10px;
 }
 
 .ellipse100 {
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 }
 
 .ellipse50 {
-  width: 14px;
-  height: 14px;
+    width: 14px;
+    height: 14px;
 }
 
 .ellipse10 {
-  width: 12px;
-  height: 12px;
+    width: 12px;
+    height: 12px;
 }
 
 .ellipse5 {
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 }
 
 .basemaps-list ul {
@@ -716,7 +717,7 @@ footer ul li {
   }
   .container_l {
     width: 99.5%;
-    height: calc(80vh - 100vh/50%);
+    height: calc(80vh - 100vh/50%)
     min-height: 600px;
   }
   .map-intaractive-content {
