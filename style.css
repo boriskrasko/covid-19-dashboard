@@ -717,7 +717,7 @@ footer ul li {
   }
   .container_l {
     width: 99.5%;
-    height: calc(80vh - 100vh/50%)
+    height: calc(80vh - 100vh/50%);
     min-height: 600px;
   }
   .map-intaractive-content {
