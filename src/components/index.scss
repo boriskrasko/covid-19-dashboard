@@ -14,7 +14,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // border: 1px solid gray;
 }
 
 li {
@@ -43,7 +42,6 @@ body {
 
 main {
   position: relative;
-  width: 1024px;
   min-width: 320px;
   height: 768px;
   margin: 0 auto;
@@ -105,7 +103,7 @@ main {
   min-height: 83px;
   background: var(--black);
   border-radius: 6px;
-  margin: 2px;
+  margin: 1px auto;
   padding: 14px 18px 16px 18px;
   border: 1px solid transparent;
   z-index: 0;
@@ -167,10 +165,6 @@ main {
 }
 
 /* Search */
-.search {
-  max-width: 212px;
-}
-
 .search .input {
   background: var(--darkness);
   border-radius: 6px;
@@ -197,8 +191,16 @@ main {
   outline: none;
   color: var(--text);
   padding: 6px;
-  font-size: 8px;
-  width: 90%;
+}
+
+[full] .input input {
+  width: 100%;
+  min-height: 24px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  padding: 6px;
 }
 
 .input input::placeholder {
@@ -206,11 +208,13 @@ main {
 }
 
 .search {
+  min-width: 220px;
+  width: calc(100% - 10px);
   margin-top: 5px;
-  width: 206px;
   display: flex;
   justify-content: flex-end;
   opacity: 0.7;
+  position: relative;
 }
 
 .search:hover {
@@ -246,6 +250,8 @@ input:focus::placeholder {
 
 .country-hover {
   outline: none;
+  display: flex;
+  justify-content: space-between;
 }
 
 .full-screen-btn {
@@ -255,8 +261,16 @@ input:focus::placeholder {
   transition: 0.1s all;
 }
 
+[full] .full-screen-btn svg {
+  width: 16px;
+}
+
 .full-screen-btn:hover {
   transform: scale(1.2);
+}
+
+[full] .full-screen-btn:hover {
+  transform: scale(1.1);
 }
 
 .dropdown {
@@ -271,8 +285,12 @@ input:focus::placeholder {
 .scroll-container {
   margin-top: 5px;
   width: 220px;
-  height: 322px;
+  height: 400px;
   overflow-y: scroll;
+}
+
+[full] .scroll-container {
+  height: 80vh;
 }
 
 .list ul {
@@ -292,6 +310,12 @@ input:focus::placeholder {
 
 .list li:hover {
   border: 1px solid var(--purple);
+}
+
+[full] li,
+[full] .scroll-container {
+  min-width: 320px;
+  width: 98%;
 }
 
 @media screen and (min-width: 1040px) {
@@ -342,18 +366,13 @@ input:focus::placeholder {
   }
 
   li,
-  li,
   .scroll-container {
     width: 98% !important;
   }
 
   .container {
-    width: 99.2%;
+    width: 100%;
     padding-right: 2px;
-  }
-
-  .full-screen-btn {
-    left: 95.4%;
   }
 
   .map {
@@ -412,17 +431,22 @@ input:focus::placeholder {
 }
 
 // Modal Window FullScreen
-.full {
-  width: 100%;
-  height: 100%;
+[full] {
+  position: fixed;
+  z-index: 999;
+  width: 98%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   padding: 40px 57px 20px;
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
-.full .wrapper {
+[full] .wrapper {
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -430,30 +454,31 @@ input:focus::placeholder {
   align-items: flex-start;
 }
 
-.full .wrapper div {
+[full] .wrapper div {
   width: 100%;
 }
 
-.full .select__trigger span {
+[full] .select__trigger span {
   width: 242px;
 }
 
-.full .scroll-container {
+[full] .wrapper,
+[full] .scroll-container {
   width: 100%;
-  height: 560px;
+  max-height: 90vh;
 }
 
-.full .bookmarks .scroll-container,
-.full .basemaps .scroll-container {
+[full] .bookmarks .scroll-container,
+[full] .basemaps .scroll-container {
   height: 100px;
 }
 
-.full .legend .scroll-container {
+[full] .legend .scroll-container {
   height: 66px;
 }
 
-.full .legend .scroll-container li,
-.full .bookmarks .scroll-container li {
+[full] .legend .scroll-container li,
+[full] .bookmarks .scroll-container li {
   width: 96%;
 }
 
@@ -462,19 +487,24 @@ input:focus::placeholder {
   justify-content: flex-start;
 }
 
-.full .map-area {
+[full] .map-area {
   width: 100%;
 }
 
-.full .global-heading,
-.full .date-heading {
+[full] .global-heading,
+[full] .date-heading {
   font-size: 22px;
   margin-bottom: 10px;
 }
 
-.full .global-cases-counter,
-.full .update-time {
-  font-size: 68px;
+[full].global-cases {
+  justify-content: center;
+}
+
+[full] .global-cases-counter,
+[full] .update-time {
+  text-align: center;
+  font-size: 48px;
 }
 
 .map-nav {

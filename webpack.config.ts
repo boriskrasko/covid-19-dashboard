@@ -39,7 +39,7 @@ const config: Configuration = {
   entry: './src/index.tsx',
   output: {
     path: resolve(__dirname, 'build'),
-    publicPath: '/',
+    // publicPath: '/',
     filename: 'bundle.js',
   },
   module: {
@@ -113,10 +113,13 @@ const config: Configuration = {
     isAnalyze ? new BundleAnalyzerPlugin() : nothing,
     isProduction
       ? new CopyWebpackPlugin({
-          patterns: [{ from: './static', to: '.' }],
-        })
+        patterns: [{ from: './static', to: '.' }],
+      })
       : nothing,
   ],
+  stats: {
+    children: false,
+  },
 };
 
 export default config;
