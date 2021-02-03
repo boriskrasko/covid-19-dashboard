@@ -3,12 +3,14 @@
   user-select: none;
   min-width: 200px;
   max-width: 200px;
+  outline: none;
 }
 
 .select {
   position: relative;
   display: flex;
   flex-direction: column;
+  outline: none;
 }
 
 .select__trigger {
@@ -23,6 +25,7 @@
   padding: 13px 0 13px 2px;
   background: transparent;
   cursor: pointer;
+  outline: none;
 }
 
 .select__trigger:hover {
@@ -41,9 +44,18 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1100;
   border-radius: 6px;
   border: 1px solid transparent;
+}
+
+.scroll {
+  margin-top: 5px;
+  width: 220px;
+  height: 322px;
+  overflow-y: scroll;
+  width: 250px;
+  max-height: 104px;
 }
 
 .open-options {
@@ -61,6 +73,7 @@
   color: var(--text);
   cursor: pointer;
   transition: all 0.5s;
+  outline: none;
 }
 
 .option:hover {

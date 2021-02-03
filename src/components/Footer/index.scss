@@ -1,8 +1,8 @@
 footer {
   width: 100%;
   max-width: 978px;
-  min-height: 60px;
-  height: 70px;
+  min-height: 50px;
+  height: 50px;
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
@@ -13,22 +13,13 @@ footer {
 }
 
 .logo {
+  width: 100px;
   margin-right: 10px;
-}
-
-.logo pre {
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: bold;
-  color: var(--blue);
-  font-size: 20px;
-  letter-spacing: -2px;
-  line-height: 18px;
-  -webkit-text-stroke: 0.5px var(--blue);
   cursor: pointer;
 }
 
-.logo pre:hover {
-  -webkit-text-stroke: 0.5px #178cfa;
+.logo svg:hover {
+  filter: invert(100%) saturate(2878%) hue-rotate(165deg) brightness(120%) contrast(100%);
 }
 
 footer ul {
@@ -41,7 +32,14 @@ footer ul {
   color: var(--text);
   font-size: 11px;
   white-space: nowrap;
-  grid-gap: 10px;
+}
+
+footer ul span {
+  margin-left: 10px;
+}
+
+.devs {
+  margin-right: 20px;
 }
 
 footer ul li a {
@@ -74,8 +72,51 @@ footer ul li {
   align-items: center;
 }
 
+.github-links svg {
+  margin-right: 8px;
+}
+
 .year {
   color: var(--blue);
   font-size: 14px;
   margin-right: 50px;
+}
+
+@media screen and (max-width: 1023px) {
+  .github-links {
+    margin-top: 20px;
+  }
+  .year {
+    margin-right: 10px;
+  }
+  footer {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  footer ul li:first-child {
+    margin-left: 0;
+  }
+  footer ul,
+  .github-links {
+    grid-gap: 2px;
+    flex-wrap: wrap !important;
+  }
+  .github-links ul,
+  .github-links ul li a {
+    font-size: 14px;
+  }
+  .github-links ul span {
+    margin-left: 0;
+  }
+  .year {
+    margin: 40px auto 5px;
+  }
+  .github-links a {
+    width: 150px;
+    margin: 5px auto;
+    display: flex;
+    justify-content: flex-start;
+  }
 }

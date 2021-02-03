@@ -45,6 +45,7 @@ main {
   position: relative;
   width: 1024px;
   min-width: 320px;
+  height: 768px;
   margin: 0 auto;
   padding: 0 20px 20px 20px;
   overflow-x: hidden;
@@ -132,6 +133,15 @@ main {
 .container_l {
   width: 437px;
   min-height: 580px;
+}
+
+.map-intaractive-content {
+  margin-top: 27px;
+  width: 100%;
+  min-height: 470px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
 /* Scroll */
@@ -228,6 +238,18 @@ input:focus::placeholder {
   margin-right: 7px;
 }
 
+.country-hover {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.country-hover {
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+}
+
 .full-screen-btn {
   position: absolute;
   top: 4px;
@@ -272,6 +294,38 @@ input:focus::placeholder {
 
 .list li:hover {
   border: 1px solid var(--purple);
+}
+
+@media screen and (min-width: 1040px) {
+  main {
+    justify-content: center;
+    margin-top: 2vw;
+    width: 100%;
+    max-width: 1640px;
+    min-height: 720px;
+    height: 768px;
+    height: auto;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-areas:
+      'header header header'
+      'global-cases map death-cases'
+      'country-cases map death-cases'
+      'country-cases map recovery-cases'
+      'country-cases map graph'
+      'date map graph'
+      'footer footer footer';
+  }
+
+  .footer {
+    max-width: 100%;
+  }
+  .container {
+    min-width: 25%;
+  }
+  .container_l {
+    width: 99.5%;
+    min-height: 600px;
+  }
 }
 
 @media screen and (max-width: 1023px) {
@@ -323,7 +377,7 @@ input:focus::placeholder {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 740px) {
   main {
     grid-template-areas:
       'header'

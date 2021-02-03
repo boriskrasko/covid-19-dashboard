@@ -4,12 +4,11 @@ import React, { useState } from 'react';
 import dropdown from '@/components/reusable/DropDown/dropdown.scss';
 import { DropDownState } from '@/types/types';
 
-const DropDown: React.FC<DropDownState> = ({ options }) => {
+const DropDown: React.FC<DropDownState> = ({ options, selected, changeSelected }) => {
   const [isOpen, setTogle] = useState(false);
-  const [selected, setSelected] = useState(options[0][0]);
 
-  const changeSelected = (newSelected: string) => {
-    setSelected(newSelected);
+  const getRandomArbitrary = (min: number, max: number) => {
+    return Math.random() * (max - min) + min;
   };
 
   return (
@@ -24,14 +23,25 @@ const DropDown: React.FC<DropDownState> = ({ options }) => {
         <span>{selected}</span>
         <div className={dropdown['arrow']} />
       </div>
-      <div className={classNames(dropdown['options'], isOpen && dropdown['open-options'])}>
+      <div
+        className={classNames(
+          dropdown['options'],
+          dropdown['scroll'],
+          isOpen && dropdown['open-options']
+        )}
+      >
         {options.map(element => (
           <span
-            key={element[1]}
+            key={getRandomArbitrary(0, 1e100)}
             role="button"
             onKeyPress={() => null}
             tabIndex={0}
-            onClick={() => changeSelected(element[0])}
+            onClick={() => {
+              if (changeSelected) {
+                return changeSelected(element[0]) as string;
+              }
+              return null;
+            }}
             className={classNames(
               dropdown['option'],
               selected === element[0] && dropdown['selected']

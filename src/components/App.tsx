@@ -10,21 +10,25 @@ import List from '@/components/List/List';
 import Map from '@/components/Map/Map';
 import Table from '@/components/Table/Table';
 import { RootState } from '@/redux/ReduxStore';
-import { FetchData, FetchDataForGraph } from '@/redux/apiActionCreators/dataActionCreatorAPI';
+import {
+  FetchData,
+  FetchDataForGraph,
+  FetchGlobalData,
+} from '@/redux/apiActionCreators/dataActionCreatorAPI';
 
 import './index.scss';
 
 const App = (): JSX.Element => {
-  const globalCases = useSelector<RootState, RootState['globalCases']>(
-    state => state.globalCases
-  );
+  const globalCases = useSelector<RootState, RootState['globalCases']>(state => state.globalCases);
   const countries = useSelector<RootState, RootState['countries']>(state => state.countries);
+  const dataGraph = useSelector<RootState, RootState['graph']>(state => state.graph);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(FetchData());
-    dispatch(FetchDataForGraph());
+    dispatch(FetchDataForGraph('India'));
+    dispatch(FetchGlobalData());
   }, []);
 
   return (
@@ -36,7 +40,7 @@ const App = (): JSX.Element => {
         <DateCase />
         <Map countries={countries} />
         <Table countries={countries} />
-        <Graph />
+        <Graph dataGraph={dataGraph} />
         <Footer />
       </main>
     </React.Fragment>
