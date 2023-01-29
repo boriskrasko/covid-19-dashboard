@@ -520,12 +520,12 @@ input:focus::placeholder {
   display: none;
 }
 
-.map div[role=button] ~ * * a[role=button],
-.map div[role=button] ~ * * a[title=Layers] {
+.map div[role='button'] ~ * * a[role='button'],
+.map div[role='button'] ~ * * a[title='Layers'] {
   background-color: var(--darkblue);
   color: white;
 }
 
-.map div[role=button] ~ * {
+.map div[role='button'] ~ * {
   background-color: var(--darkblue);
 }
