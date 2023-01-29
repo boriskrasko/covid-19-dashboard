@@ -63,7 +63,7 @@ const Map: React.FC<ListState> = ({ countries }) => {
               <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
             </LayersControl.BaseLayer>
             <LayersControl.BaseLayer name="Light mode">
-              <TileLayer url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png" />
+              <TileLayer url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png" />
             </LayersControl.BaseLayer>
           </LayersControl>
           {countries.map(country => {

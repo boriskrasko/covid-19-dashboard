@@ -47,6 +47,7 @@ main {
   margin: 0 auto;
   padding: 0 20px 20px 20px;
   overflow-x: hidden;
+  column-gap: 2px;
 
   display: grid;
   grid-template-areas:
@@ -314,7 +315,7 @@ input:focus::placeholder {
 
 [full] li,
 [full] .scroll-container {
-  min-width: 320px;
+  min-width: 220px;
   width: 98%;
 }
 
@@ -517,4 +518,14 @@ input:focus::placeholder {
 
 .hide {
   display: none;
+}
+
+.map div[role=button] ~ * * a[role=button],
+.map div[role=button] ~ * * a[title=Layers] {
+  background-color: var(--darkblue);
+  color: white;
+}
+
+.map div[role=button] ~ * {
+  background-color: var(--darkblue);
 }
