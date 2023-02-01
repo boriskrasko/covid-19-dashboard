@@ -7,3 +7,6 @@
 <img src="https://boriskrasko.github.io/boriskrasko/logo/sass.png" width="40" /> <img src="https://boriskrasko.github.io/boriskrasko/logo/ts.png" width="40" />
 <img src="https://boriskrasko.github.io/boriskrasko/logo/react.png" width="40" />
 <img src="https://boriskrasko.github.io/boriskrasko/logo/redux.png" width="40" />
+
+## [Markup](https://boriskrasko.github.io/covid-19-dashboard/)
+## [Figma](https://www.figma.com/file/ORyDt8ZnsBjQh1fmNudRPG/Covid-Dashboard?t=94Ajc6ALv0zjHhFN-6)
