@@ -266,6 +266,7 @@ input:focus::placeholder {
 /* Grids Area Names */
 .global-cases {
   grid-area: global-cases;
+  min-height: 86px;
 }
 
 .country-cases {
@@ -282,6 +283,7 @@ input:focus::placeholder {
 
 .death-cases {
   grid-area: death-cases;
+  min-height: 200px;
 }
 
 .recovery-cases {
@@ -880,7 +882,7 @@ footer ul li {
   width: 100%;
 }
 
-.full .global-heading,
+.full .global-cases-heading,
 .full .date-heading {
   font-size: 22px;
   margin-bottom: 10px;
