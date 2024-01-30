@@ -32,7 +32,7 @@
         Global Cases
       </div>
       <div class="counter global-cases-counter">
-        68,783,534
+
       </div>
     </div>
 
@@ -428,10 +428,12 @@ SC HO OL
       const fragment = document.createDocumentFragment();
       data.forEach(item => {
           const li = document.createElement('li');
-          li.innerHTML = `<span class="counter">${item.Total}</span><span class="country">${item.Country}</span>`;
+          li.innerHTML = `<span class="counter">${item.Total || 0}</span><span class="country">${item.Country}</span>`;
           fragment.appendChild(li);
       });
       casesListByCounty.appendChild(fragment);
+      const globalCasesCounter = document.querySelector('.global-cases-counter');
+      globalCasesCounter.textContent = data[data.length - 1].Total || 0;
     </script>
   </body>
 </html>
