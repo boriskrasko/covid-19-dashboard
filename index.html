@@ -66,102 +66,6 @@
         <div class="scroll-container">
           <div class="list country-cases-list">
             <ul>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
-              <li>
-                <span class="counter">15,386,562</span>
-                <span class="country">USA</span>
-              </li>
             </ul>
           </div>
         </div>
@@ -517,5 +421,17 @@ SC HO OL
     <div class="modal-window"></div>
     <script src="main.js"></script>
     <script src="dropdown.js"></script>
+    <script src="data.js"></script>
+
+    <script>
+      const casesListByCounty = document.querySelector('.country-cases-list ul');
+      const fragment = document.createDocumentFragment();
+      data.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="counter">${item.Total}</span><span class="country">${item.Country}</span>`;
+          fragment.appendChild(li);
+      });
+      casesListByCounty.appendChild(fragment);
+    </script>
   </body>
 </html>

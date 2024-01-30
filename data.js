@@ -1,4 +1,4 @@
-[
+const data = [
  {
   "id": 1,
   "Country": "USA",
@@ -3138,7 +3138,7 @@
   "Active": 0
  },
  {
-  "Country": "Total:",
+  "Country": "Total",
   "Total": "702,473,014",
   "New": 5.453,
   "Total deaths": "6,974,396",
