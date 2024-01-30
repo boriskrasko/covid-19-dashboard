@@ -3138,16 +3138,15 @@ const data = [
   "Active": 0
  },
  {
-  "Country": "Total",
-  "Total": "702,473,014",
-  "New": 5.453,
-  "Total deaths": "6,974,396",
-  "New deaths": 13,
-  "Total recovered": "673,409,860",
-  "New recovered": 38.562,
+  "Cases": "702,473,014",
+  "New Cases": 5.453,
+  "Deaths": "6,974,396",
+  "New Deaths": 13,
+  "Recovered": "673,409,860",
+  "New Recovered": 38.562,
   "Active": "22,088,758",
-  "Serious": 36.486,
-  "Tot cases": "90,120.7",
-  "Tot deaths": "894.7"
+  "Critical": 36.486,
+  "Cases Per One Million": "90,120.7",
+  "Deaths Cases Per One Million": "894.7"
  }
 ]

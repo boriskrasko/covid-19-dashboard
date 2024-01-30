@@ -544,10 +544,10 @@ input:focus::placeholder {
 
 .recovery-cases-list .counter-value,
 .recovery-cases-list .counter {
-	font-size: 10px;
+	font-size: 16px;
 	line-height: 10px;
 	color: var(--blue);
-	margin-left: 2px;
+	margin-left: 4px;
 }
 
 .recovery-cases-list .counter-recovered,
@@ -827,7 +827,7 @@ footer ul li {
 }
 
 .full .select__trigger span {
-     width: 242px;
+  width: 242px;
 }
 
 .full .scroll-container {
@@ -877,5 +877,5 @@ footer ul li {
 }
 
 .hide {
-     display: none;
+  display: none;
 }

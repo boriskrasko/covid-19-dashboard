@@ -257,36 +257,10 @@
           </div>
         </div>
         <div class="global-counter_deaths">
-          1,570,642
         </div>
         <div class="scroll-container">
           <div class="list death-cases-list">
             <ul>
-              <li>
-                <span class="counter">297,501</span>
-                <span class="counter-value">deaths</span>
-                <span class="country">Brazil</span>
-              </li>
-              <li>
-                <span class="counter">297,501</span>
-                <span class="counter-value">deaths</span>
-                <span class="country">Brazil</span>
-              </li>
-              <li>
-                <span class="counter">297,501</span>
-                <span class="counter-value">deaths</span>
-                <span class="country">Brazil</span>
-              </li>
-              <li>
-                <span class="counter">297,501</span>
-                <span class="counter-value">deaths</span>
-                <span class="country">Brazil</span>
-              </li>
-              <li>
-                <span class="counter">297,501</span>
-                <span class="counter-value">deaths</span>
-                <span class="country">Brazil</span>
-              </li>
             </ul>
           </div>
         </div>
@@ -299,64 +273,12 @@
         <img src="assets/icons/fullscreen.svg" alt="full screen icon" />
       </button>
       <div class="wrapper">
-        <div class="dropdown select-wrapper">
-          <div class="select">
-            <div class="select__trigger">
-              <span>US State Level</span>
-              <div class="arrow"></div>
-            </div>
-            <div class="options">
-              <span class="option selected" data-value="state-level">US State Level</span>
-              <span class="option" data-value="tested">Total Test Results in US</span>
-            </div>
-          </div>
-        </div>
         <div class="global-counter_recovery">
-          Deaths, Recovered
+          Global
         </div>
         <div class="scroll-container">
           <div class="list recovery-cases-list">
             <ul>
-              <li>
-                <span class="counter counter-deaths">297,501</span>
-                <span class="counter-value counter-deaths-value">deaths</span>
-                <span class="counte counter-recovered">297,501</span>
-                <span class="counter-value counter-recovered-value">recovered</span>
-                <span class="city">New York</span>
-                <span class="country">US</span>
-              </li>
-              <li>
-                <span class="counter counter-deaths">297,501</span>
-                <span class="counter-value counter-deaths-value">deaths</span>
-                <span class="counte counter-recovered">297,501</span>
-                <span class="counter-value counter-recovered-value">recovered</span>
-                <span class="city">New York</span>
-                <span class="country">US</span>
-              </li>
-              <li>
-                <span class="counter counter-deaths">297,501</span>
-                <span class="counter-value counter-deaths-value">deaths</span>
-                <span class="counte counter-recovered">297,501</span>
-                <span class="counter-value counter-recovered-value">recovered</span>
-                <span class="city">New York</span>
-                <span class="country">US</span>
-              </li>
-              <li>
-                <span class="counter counter-deaths">297,501</span>
-                <span class="counter-value counter-deaths-value">deaths</span>
-                <span class="counte counter-recovered">297,501</span>
-                <span class="counter-value counter-recovered-value">recovered</span>
-                <span class="city">New York</span>
-                <span class="country">US</span>
-              </li>
-              <li>
-                <span class="counter counter-deaths">297,501</span>
-                <span class="counter-value counter-deaths-value">deaths</span>
-                <span class="counte counter-recovered">297,501</span>
-                <span class="counter-value counter-recovered-value">recovered</span>
-                <span class="city">New York</span>
-                <span class="country">US</span>
-              </li>
             </ul>
           </div>
         </div>
@@ -426,13 +348,15 @@ SC HO OL
       const casesListByCounty = document.querySelector('.country-cases-list ul');
       const fragment = document.createDocumentFragment();
       data.forEach(item => {
-          const li = document.createElement('li');
-          li.innerHTML = `<span class="counter">${item.Total || 0}</span><span class="country">${item.Country}</span>`;
-          fragment.appendChild(li);
+          if (item.id) {
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="counter">${item.Total || 0}</span><span class="country">${item.Country}</span>`;
+            fragment.appendChild(li);
+          }
       });
       casesListByCounty.appendChild(fragment);
       const globalCasesCounter = document.querySelector('.global-cases-counter');
-      globalCasesCounter.textContent = data[data.length - 1].Total || 0;
+      globalCasesCounter.textContent = data[data.length - 1]['Cases'] || 0;
 
       const formatAMPM = date => {
         const options = { month: '2-digit', day: '2-digit', year: 'numeric', hour: 'numeric', minute: '2-digit' };
@@ -443,6 +367,30 @@ SC HO OL
       const formattedTime = formatAMPM(currentDate);
       const updateTime = document.querySelector('.update-time span');
       updateTime.textContent = formattedTime;
+
+      const deathCasesList = document.querySelector('.death-cases-list ul');
+      const deathCaseFragment = document.createDocumentFragment();
+      data.forEach(item => {
+        if (item.id) {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="counter">${item['Total deaths'] || 0}</span><span class="counter-value"> deaths </span><span class="country"> ${item.Country}</span>`;
+          deathCaseFragment.appendChild(li);
+        }
+      });
+      deathCasesList.appendChild(deathCaseFragment);
+      
+      const globaDeathsCounter = document.querySelector('.global-counter_deaths');
+      globaDeathsCounter.textContent = data[data.length - 1]['Deaths'] || 0;
+
+      const globalCasesList = document.querySelector('.recovery-cases-list ul');
+      const globalCaseFragment = document.createDocumentFragment();
+      totalData = data[data.length - 1];
+      Object.entries(totalData).forEach(([property, value]) => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="counter"> ${value} </span><span class="counter-value counter-recovered-value">${property}</span>`;
+          globalCaseFragment.appendChild(li);
+      });
+      globalCasesList.appendChild(globalCaseFragment);
 
     </script>
   </body>
