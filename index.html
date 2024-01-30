@@ -82,7 +82,6 @@
       </div>
       <div class="update-time">
         <span>
-          12/10/2020, 7:26 am
         </span>
       </div>
     </div>
@@ -434,6 +433,17 @@ SC HO OL
       casesListByCounty.appendChild(fragment);
       const globalCasesCounter = document.querySelector('.global-cases-counter');
       globalCasesCounter.textContent = data[data.length - 1].Total || 0;
+
+      const formatAMPM = date => {
+        const options = { month: '2-digit', day: '2-digit', year: 'numeric', hour: 'numeric', minute: '2-digit' };
+        return new Intl.DateTimeFormat('en-US', options).format(date);
+      }
+
+      const currentDate = new Date();
+      const formattedTime = formatAMPM(currentDate);
+      const updateTime = document.querySelector('.update-time span');
+      updateTime.textContent = formattedTime;
+
     </script>
   </body>
 </html>
