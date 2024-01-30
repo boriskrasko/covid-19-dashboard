@@ -36,7 +36,7 @@ button {
 body {
 	position: relative;
 	width: 1024px;
-  height: 100vh;
+	height: 768px;
 	min-width: 320px;
 	margin: 0 auto;
 	padding: 0 20px 20px 20px;
@@ -335,6 +335,7 @@ input:focus::placeholder {
 	margin-top: 27px;
 	width: 100%;
 	min-height: 470px;
+	max-height: 668px;
 	display: flex;
 	justify-content: center;
 	overflow: hidden;
@@ -693,12 +694,9 @@ footer ul li {
 @media screen and (min-width: 1040px) {
   body {
     justify-content: center;
-    /*margin-top: 3vw;*/
     width: 100%;
     max-width: 1640px;
-    min-height: 720px;
-    max-height: 1080px;
-    height: auto;
+    height: 768px;
     grid-template-columns: 1fr 5fr 1fr;
     grid-template-areas:
     "header header header"
@@ -718,12 +716,8 @@ footer ul li {
   }
   .container_l {
     width: 99.5%;
-    height: calc(80vh - 100vh/50%)
+    height: calc(80vh - 100vh/50%);
     min-height: 600px;
-  }
-  .map-intaractive-content {
-    height: 70vh;
-    min-height: 520px;
   }
 
 }
