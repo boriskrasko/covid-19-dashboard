@@ -332,6 +332,7 @@ input:focus::placeholder {
 }
 
 .map-intaractive-content {
+	position: relative;
 	margin-top: 27px;
 	width: 100%;
 	min-height: 470px;
@@ -339,11 +340,42 @@ input:focus::placeholder {
 	display: flex;
 	justify-content: center;
 	overflow: hidden;
-  background: url('assets/images/map.svg');
-  background-position: center;
-  background-size:cover;
-  background-repeat: no-repeat;
+	background-color: #000;
+	 /* background: url('assets/images/world.svg');  */
+	background-position: center;
+	background-size:cover;
+	background-repeat: no-repeat;
+}
 
+.map-svg {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: scroll;
+	z-index: 0;
+}
+
+/* path:hover {
+	fill: var(--darkblue);
+	transition: 0.2s fill 0.1s;
+} */
+
+.map-svg svg {
+	position: absolute;
+	min-width: 1000px;
+	width: 1000px;
+	user-select: none;
+	cursor: grab;
+	z-index: 1;
+	box-shadow: 0 0 1px 0.1px var(--purple);
+	/* background-color: rgb(12, 14, 19); */
+}
+
+.map-svg::-webkit-scrollbar {
+    display: none;
 }
 
 .bookmarks, .legend, .basemaps {
@@ -573,6 +605,11 @@ input:focus::placeholder {
 
 .graph .heading {
 	display: flex;
+}
+
+.chart {
+	width: 100%;
+	height: 100%;
 }
 
 .graph button {
