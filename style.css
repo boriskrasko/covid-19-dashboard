@@ -363,10 +363,12 @@ input:focus::placeholder {
 	transition: 0.2s fill 0.1s;
 } */
 
+
+
 .map-svg svg {
 	position: absolute;
-	min-width: 1000px;
-	width: 1000px;
+	min-width: 1400px;
+	width: 1400px;
 	user-select: none;
 	cursor: grab;
 	z-index: 1;
