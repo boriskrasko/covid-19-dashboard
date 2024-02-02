@@ -933,3 +933,7 @@ footer ul li {
 .hide {
   display: none;
 }
+
+.active-country {
+  fill: #17D0FA;
+}
