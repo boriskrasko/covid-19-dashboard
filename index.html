@@ -1309,6 +1309,7 @@ SC HO OL
     <script src="country-codes.js"></script>
 
     <script>
+      const totalData = data[data.length - 1];
       const casesListByCounty = document.querySelector('.country-cases-list ul');
       const fragment = document.createDocumentFragment();
       data.forEach(item => {
@@ -1349,7 +1350,6 @@ SC HO OL
 
       const globalCasesList = document.querySelector('.recovery-cases-list ul');
       const globalCaseFragment = document.createDocumentFragment();
-      totalData = data[data.length - 1];
       Object.entries(totalData).forEach(([property, value]) => {
           const li = document.createElement('li');
           li.innerHTML = `<span class="counter"> ${value} </span><span class="counter-value counter-recovered-value">${property}</span>`;
@@ -1375,42 +1375,50 @@ SC HO OL
       }
 
       mapImage.onmousedown = function(e) {
-        var coords = getCoords(mapImage);
-        var shiftX = e.pageX - coords.left;
-        var shiftY = e.pageY - coords.top;
-
-        var parentCoords = getCoords(document.querySelector('.map-svg'));
-        var parentScrollLeft = document.querySelector('.map-svg').scrollLeft;
-        var parentScrollTop = document.querySelector('.map-svg').scrollTop;
-        shiftX += parentCoords.left - parentScrollLeft;
-        shiftY += parentCoords.top - parentScrollTop;
+        const { shiftX, shiftY } = calculateShift(e);
 
         mapImage.style.position = 'absolute';
         document.querySelector('.map-svg').appendChild(mapImage);
         moveAt(e);
-        mapImage.style.zIndex = 100;
 
         function moveAt(e) {
-          mapImage.style.left = e.pageX - shiftX + 'px';
-          mapImage.style.top = e.pageY - shiftY + 'px';
+            mapImage.style.left = e.pageX - shiftX + 'px';
+            mapImage.style.top = e.pageY - shiftY + 'px';
         }
 
         document.onmousemove = function(e) {
-          moveAt(e);
+            moveAt(e);
         };
 
-        mapImage.onmouseup = function() {
-          document.onmousemove = null;
-          mapImage.onmouseup = null;
-          mapImage.style.zIndex = 0;
-        };
-        
-        document.querySelector('.map-svg').onmouseleave = function() {
-          document.onmousemove = null;
-          mapImage.onmouseup = null;
-          mapImage.style.zIndex = 0;
-        };
-      };
+        mapImage.onmouseup = resetDrag;
+        document.querySelector('.map-svg').onmouseleave = resetDrag;
+
+        const countryName = e.target.getAttribute('name') || e.target.getAttribute('class').split(' ')[0];
+        const currentCountry = findCountryByName(countryName);
+        updateGlobalCounterRecovery(countryName);
+        displayCountryData(currentCountry);
+        hideCountyBorders(countryName, e.target.id);
+    };
+
+function calculateShift(e) {
+    const coords = getCoords(mapImage);
+    let shiftX = e.pageX - coords.left;
+    let shiftY = e.pageY - coords.top;
+
+    const parentCoords = getCoords(document.querySelector('.map-svg'));
+    const parentScrollLeft = document.querySelector('.map-svg').scrollLeft;
+    const parentScrollTop = document.querySelector('.map-svg').scrollTop;
+    shiftX += parentCoords.left - parentScrollLeft;
+    shiftY += parentCoords.top - parentScrollTop;
+
+    return { shiftX, shiftY };
+}
+
+function resetDrag() {
+    document.onmousemove = null;
+    mapImage.onmouseup = null;
+    mapImage.style.zIndex = 0;
+}
 
       mapImage.ondragstart = function() {
         return false;
@@ -1421,7 +1429,6 @@ SC HO OL
           console.log(e.target.classList.toString() || e.target.id.toString());
         }
       });
-
 
       function getAlpha2Code(countryName) {
         const country = codes.find(code => code.Country === countryName);
@@ -1464,7 +1471,7 @@ SC HO OL
       }
 
       function updateGlobalCounterRecovery(countryName) {
-        document.querySelector('.global-counter_recovery').textContent = countryName;
+        document.querySelector('.global-counter_recovery').textContent = countryName || 'Global';
       }
 
       function findCountryByName(countryName) {
@@ -1472,6 +1479,7 @@ SC HO OL
       }
 
       function displayCountryData(country) {
+        country = country || totalData;
         const globalCaseFragment = document.createDocumentFragment();
         Object.entries(country).forEach(([property, value]) => {
           if (property !== 'id' && property !== 'Country') {
