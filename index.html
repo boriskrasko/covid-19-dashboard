@@ -1445,14 +1445,58 @@ SC HO OL
       const casesItemByCounty = Array.from(casesListByCounty.querySelectorAll('li'));
 
       casesItemByCounty.forEach(item => {
-        item.addEventListener('click', e => {
-          const alpha2Code = getAlpha2Code(e.currentTarget.dataset.country);
-          console.log(alpha2Code);
-          if (alpha2Code) {
-            hideCountyBorders(e.currentTarget.dataset.country, alpha2Code);
+        item.addEventListener('click', handleCountryClick);
+      });
+
+      function handleCountryClick(event) {
+        const countryName = event.currentTarget.dataset.country;
+        const alpha2Code = getAlpha2Code(countryName);
+        console.log(alpha2Code);
+
+        if (alpha2Code) {
+          hideCountyBorders(countryName, alpha2Code);
+        } 
+
+        updateGlobalCounterRecovery(countryName);
+
+        const currentCountry = findCountryByName(countryName);
+        displayCountryData(currentCountry);
+      }
+
+      function updateGlobalCounterRecovery(countryName) {
+        document.querySelector('.global-counter_recovery').textContent = countryName;
+      }
+
+      function findCountryByName(countryName) {
+        return data.find(country => country.Country === countryName);
+      }
+
+      function displayCountryData(country) {
+        const globalCaseFragment = document.createDocumentFragment();
+        Object.entries(country).forEach(([property, value]) => {
+          if (property !== 'id' && property !== 'Country') {
+            const li = createListItem(property, value);
+            globalCaseFragment.appendChild(li);
           }
         });
-      });
+        clearGlobalCasesList();
+        appendGlobalCaseFragment(globalCaseFragment);
+      }
+
+      function createListItem(property, value) {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="counter"> ${value.toString()} </span><span class="counter-value counter-recovered-value">${property}</span>`;
+        return li;
+      }
+
+      function clearGlobalCasesList() {
+        globalCasesList.innerHTML = '';
+      }
+
+      function appendGlobalCaseFragment(fragment) {
+        globalCasesList.appendChild(fragment);
+      }
+
     </script>
   </body>
 </html>
