@@ -367,8 +367,8 @@ function handleOptionClick(option) {
   filteredData.forEach(item => {
     if (item.id) {
       const li = document.createElement('li');
-      const counterValue = option.dataset.value === 'Total deaths' ? 'deaths' : 'recovered';
-      li.innerHTML = `<span class="counter">${item[option.dataset.value] || 0}</span><span class="counter-value">${counterValue}</span><span class="country">${item.Country}</span>`;
+      const counterValue = option.dataset.value === 'Total deaths' ? 'deaths ' : 'recovered ';
+      li.innerHTML = `<span class="counter">${item[option.dataset.value] || 0}</span><span class="counter-value">${counterValue} </span><span class="country"> ${item.Country}</span>`;
       deathCaseFragment.appendChild(li);
     }
   });
