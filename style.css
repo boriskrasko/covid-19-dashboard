@@ -81,7 +81,7 @@ body {
 .close-btn {
   position: absolute;
   top: 4px;
-  right: 14px;
+  right: 5px;
   width: 12px;
   height: 12px;
   transition: 0.1s all;
@@ -346,7 +346,6 @@ input:focus::placeholder {
   justify-content: center;
   overflow: hidden;
   background-color: #000;
-  /* background: url('assets/images/world.svg');  */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -365,8 +364,8 @@ input:focus::placeholder {
 
 .map-svg svg {
   position: absolute;
-  min-width: 1400px;
-  width: 1400px;
+  min-width: 1000px;
+  width: 1000px;
   user-select: none;
   cursor: grab;
   z-index: 1;
@@ -377,7 +376,7 @@ input:focus::placeholder {
   display: none;
 }
 
-.bookmarks,
+.bookmark,
 .legend,
 .basemaps {
   position: absolute;
@@ -393,7 +392,7 @@ input:focus::placeholder {
   border: 1px solid transparent;
 }
 
-.bookmarks .scroll-container,
+.bookmark .scroll-container,
 .basemaps .scroll-container {
   height: 100px;
 }
@@ -402,17 +401,18 @@ input:focus::placeholder {
   height: 65px;
 }
 
-.bookmarks-county-list li,
+.bookmark-county-list li,
 .legend-list li {
   display: flex;
   align-items: center;
+  margin-right: 10px;
   font-size: 8px;
   line-height: 8px;
   color: rgba(243, 243, 243, 0.9);
   cursor: pointer;
 }
 
-.bookmarks-county-list li:hover,
+.bookmark-county-list li:hover,
 .legend-list li:hover {
   color: var(--dirtyblue);
 }
@@ -463,7 +463,7 @@ input:focus::placeholder {
   color: var(--text)
 }
 
-.bookmarks-select-panel {
+.bookmark-select-panel {
   position: absolute;
   right: 22px;
   bottom: 11px;
@@ -477,7 +477,7 @@ input:focus::placeholder {
   justify-content: space-around;
 }
 
-.bookmarks-select-panel button {
+.bookmark-select-panel button {
   width: 33%;
 }
 
@@ -532,6 +532,12 @@ input:focus::placeholder {
   margin-top: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
 }
 
 .box:hover {
@@ -657,20 +663,12 @@ footer {
   -webkit-text-stroke: 0.5px #178CFA;
 }
 
-footer ul {
-  width: 100%;
+footer {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  flex-wrap: nowrap;
-  list-style: none;
-  color: var(--text);
-  font-size: 11px;
-  white-space: nowrap;
-  grid-gap: 10px;
 }
 
-footer ul li a {
+footer a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -723,7 +721,6 @@ footer ul li {
 }
 
 .active {
-  display: block;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -780,7 +777,7 @@ footer ul li {
 
   li,
   li,
-  .scroll-container {
+  .wrapper .scroll-container {
     width: 98% !important;
   }
 
@@ -795,10 +792,6 @@ footer ul li {
 
   .map {
     width: 100%;
-  }
-
-  .github-links {
-    margin-top: 20px;
   }
 
   .year {
@@ -838,28 +831,17 @@ footer ul li {
     width: 100%;
   }
 
-  footer ul li:first-child {
-    margin-left: 0;
-  }
-
-  footer ul,
-  .github-links {
-    flex-wrap: wrap !important;
-  }
-
   .github-links ul,
   .github-links ul li a {
     font-size: 14px;
-  }
-
-  .year {
-    margin: 40px auto 5px;
   }
 }
 
 .full {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -867,28 +849,26 @@ footer ul li {
   padding: 40px 57px 20px;
 }
 
+.full .map-intaractive {
+  height: 95vh;
+}
+
 .full .wrapper {
   width: 100%;
+  height: 95vh;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.full .wrapper div {
+
+.full .wrapper .scroll-container {
   width: 100%;
+  height: 85vh
 }
 
-.full .select__trigger span {
-  width: 242px;
-}
-
-.full .scroll-container {
-  width: 100%;
-  height: 560px
-}
-
-.full .bookmarks .scroll-container,
+.full .bookmark .scroll-container,
 .full .basemaps .scroll-container {
   height: 100px;
 }
@@ -898,7 +878,7 @@ footer ul li {
 }
 
 .full .legend .scroll-container li,
-.full .bookmarks .scroll-container li {
+.full .bookmark .scroll-container li {
   width: 96%;
 }
 
@@ -932,4 +912,47 @@ footer ul li {
 
 .hide {
   display: none;
+}
+
+.active-country {
+  fill: #17D0FA;
+}
+
+.dark-blue .active-country {
+  fill: #eee;
+}
+
+.blue .active-country {
+  fill: #999;
+  stroke: #fff;
+}
+
+.standart .active-country {
+  fill: #17D0FA;
+}
+
+.blue > * {
+  fill: #17D0FADD;
+  stroke: #000;
+}
+
+.dark-blue > * {
+  stroke: #fff;
+}
+
+.dark-blue {
+  background-color: #1C2E3B;
+}
+
+.contrast {
+  stroke-width: 2;
+}
+
+.standart {
+  stroke-width: 0.3;
+}
+
+.standart > *{
+  stroke: #17D0FA;
+  fill: transparent;
 }
