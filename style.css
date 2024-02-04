@@ -351,6 +351,10 @@ input:focus::placeholder {
   background-repeat: no-repeat;
 }
 
+.map-intaractive  {
+  height: 70vh;
+}
+
 .map-svg {
   position: relative;
   width: 100%;
@@ -784,6 +788,11 @@ footer ul li {
   .container {
     width: 99.2%;
     padding-right: 2px;
+  }
+
+  .container_l {
+    width: 99.2%;
+    padding-right: 18px;
   }
 
   .full-screen-btn {
