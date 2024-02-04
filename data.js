@@ -3140,9 +3140,9 @@ const data = [
     {
         "Cases": "702473014",
         "New Cases": "5453",
-        "Deaths": "6974396",
+        "Total deaths": "6974396",
         "New Deaths": "13",
-        "Recovered": "673409860",
+        "Total recovered": "673409860",
         "New Recovered": "38562",
         "Active": "22088758",
         "Critical": "36486",

@@ -90,7 +90,7 @@ data.forEach(item => {
 deathCasesList.appendChild(deathCaseFragment);
 
 const globaDeathsCounter = document.querySelector('.global-counter_deaths');
-globaDeathsCounter.textContent = data[data.length - 1]['Deaths'] || 0;
+globaDeathsCounter.textContent = data[data.length - 1]['Total deaths'] || 0;
 
 const globalCasesList = document.querySelector('.recovery-cases-list ul');
 const globalCaseFragment = document.createDocumentFragment();
@@ -316,8 +316,6 @@ function caseFilter() {
   });
 }
 
-const countryCasesDropdown = document.querySelector('country-cases options');
-
 const dropdown = document.querySelector('.country-cases .options');
 
 const properties = Object.keys(data[0]).filter(property => property !== 'id' && property !== 'Country');
@@ -336,7 +334,6 @@ dropdown.querySelectorAll('.option')[0].classList.add('selected');
 
 dropdown.querySelectorAll('.option').forEach(option  => {
   option.addEventListener('click', () => {
-    console.log(option.dataset.value);
     casesListByCounty.innerHTML = '';
     fragment.innerHTML = '';
     const filteredData = data.filter(item => item[option.dataset.value] !== 'N/A');
@@ -358,3 +355,30 @@ dropdown.querySelectorAll('.option').forEach(option  => {
 })
 
 caseFilter();
+
+const deathCasesDropdown = document.querySelector('.death-cases .options');
+
+function handleOptionClick(option) {
+  deathCaseFragment.innerHTML = '';
+  deathCasesList.innerHTML = '';
+
+  const filteredData = data.filter(item => item[option.dataset.value] !== 'N/A');
+
+  filteredData.forEach(item => {
+    if (item.id) {
+      const li = document.createElement('li');
+      const counterValue = option.dataset.value === 'Total deaths' ? 'deaths' : 'recovered';
+      li.innerHTML = `<span class="counter">${item[option.dataset.value] || 0}</span><span class="counter-value">${counterValue}</span><span class="country">${item.Country}</span>`;
+      deathCaseFragment.appendChild(li);
+    }
+  });
+
+  deathCasesList.appendChild(deathCaseFragment);
+  globaDeathsCounter.textContent = data[data.length - 1][option.dataset.value] || 0;
+}
+
+deathCasesDropdown.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', () => {
+    handleOptionClick(option);
+  });
+});
