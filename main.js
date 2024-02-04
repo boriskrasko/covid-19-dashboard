@@ -254,3 +254,18 @@ basemaps.querySelectorAll('li').forEach(li => {
     mapImage.classList = li.dataset.mapStyle;
   })
 })
+
+function zoom(direction) {
+  const step = 500; 
+  const currentWidth = mapImage.clientWidth;
+  const newWidth = direction === 'in' ? currentWidth + step : currentWidth - step;
+  mapImage.style.width = `${newWidth}px`;
+}
+
+document.querySelector('.zoom-in').addEventListener('click', () => {
+  zoom('in');
+});
+
+document.querySelector('.zoom-out').addEventListener('click', () => {
+  zoom('out');
+});
