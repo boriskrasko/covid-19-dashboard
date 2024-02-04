@@ -246,3 +246,11 @@ function clearGlobalCasesList() {
 function appendGlobalCaseFragment(fragment) {
   globalCasesList.appendChild(fragment);
 }
+
+const basemaps = document.querySelector('.basemaps-list ul');
+
+basemaps.querySelectorAll('li').forEach(li => {
+  li.addEventListener('click', () => {
+    mapImage.classList = li.dataset.mapStyle;
+  })
+})

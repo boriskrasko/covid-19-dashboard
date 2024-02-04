@@ -365,8 +365,8 @@ input:focus::placeholder {
 
 .map-svg svg {
   position: absolute;
-  min-width: 1400px;
-  width: 1400px;
+  min-width: 1000px;
+  width: 1000px;
   user-select: none;
   cursor: grab;
   z-index: 1;
@@ -532,6 +532,12 @@ input:focus::placeholder {
   margin-top: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
 }
 
 .box:hover {
@@ -936,4 +942,43 @@ footer ul li {
 
 .active-country {
   fill: #17D0FA;
+}
+
+.dark-blue .active-country {
+  fill: #eee;
+}
+
+.blue .active-country {
+  fill: #999;
+  stroke: #fff;
+}
+
+.standart .active-country {
+  fill: #17D0FA;
+}
+
+.blue > * {
+  fill: #17D0FADD;
+  stroke: #000;
+}
+
+.dark-blue > * {
+  stroke: #fff;
+}
+
+.dark-blue {
+  background-color: #1C2E3B;
+}
+
+.contrast {
+  stroke-width: 2;
+}
+
+.standart {
+  stroke-width: 0.3;
+}
+
+.standart > *{
+  stroke: #17D0FA;
+  fill: transparent;
 }
