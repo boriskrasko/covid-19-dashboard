@@ -139,7 +139,7 @@ mapImage.onmousedown = function (e) {
 
   mapImage.onmouseup = resetDrag;
   document.querySelector('.map-svg').onmouseleave = resetDrag;
-
+  
   const countryName = e.target.getAttribute('name') || e.target.getAttribute('class').split(' ')[0];
   const currentCountry = findCountryByName(countryName);
   updateGlobalCounterRecovery(countryName);
@@ -252,7 +252,7 @@ const basemaps = document.querySelector('.basemaps-list ul');
 
 basemaps.querySelectorAll('li').forEach(li => {
   li.addEventListener('click', () => {
-    mapImage.classList = li.dataset.mapStyle;
+    mapImage.id = li.dataset.mapStyle;
   })
 })
 
