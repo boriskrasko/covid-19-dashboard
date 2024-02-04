@@ -902,41 +902,41 @@ footer ul li {
   fill: #17D0FA;
 }
 
-.dark-blue .active-country {
+#dark-blue .active-country {
   fill: #eee;
 }
 
-.blue .active-country {
+#blue .active-country {
   fill: #999;
   stroke: #fff;
 }
 
-.standart .active-country {
+#standart .active-country {
   fill: #17D0FA;
 }
 
-.blue > * {
+#blue > * {
   fill: #17D0FADD;
   stroke: #000;
 }
 
-.dark-blue > * {
+#dark-blue > * {
   stroke: #fff;
 }
 
-.dark-blue {
+#dark-blue {
   background-color: #1C2E3B;
 }
 
-.contrast {
+#contrast {
   stroke-width: 2;
 }
 
-.standart {
+#standart {
   stroke-width: 0.3;
 }
 
-.standart > *{
+#standart > *{
   stroke: #17D0FA;
   fill: transparent;
 }
