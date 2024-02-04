@@ -298,21 +298,23 @@ mapSearchInput.addEventListener('input', () => {
   });
 });
 
-const casesSearchInput = document.querySelector('#cases-search-input');
-const countryList = document.querySelectorAll('.country-cases-list li');
+function caseFilter() {
+  const casesSearchInput = document.querySelector('#cases-search-input');
+  const countryList = document.querySelectorAll('.country-cases-list li');
 
-casesSearchInput.addEventListener('input', function() {
-    const searchTerm = this.value.trim().toLowerCase();
+  casesSearchInput.addEventListener('input', function() {
+      const searchTerm = this.value.trim().toLowerCase();
 
-    countryList.forEach(function(item) {
-        const countryName = item.querySelector('.country').textContent.toLowerCase();
-        if (countryName.includes(searchTerm)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-});
+      countryList.forEach(function(item) {
+          const countryName = item.querySelector('.country').textContent.toLowerCase();
+          if (countryName.includes(searchTerm)) {
+              item.style.display = 'block';
+          } else {
+              item.style.display = 'none';
+          }
+      });
+  });
+}
 
 const countryCasesDropdown = document.querySelector('country-cases options');
 
@@ -351,5 +353,8 @@ dropdown.querySelectorAll('.option').forEach(option  => {
       }
     });
     casesListByCounty.appendChild(fragment);
+    caseFilter();
   })
 })
+
+caseFilter();
