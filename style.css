@@ -340,8 +340,8 @@ input:focus::placeholder {
   position: relative;
   margin-top: 27px;
   width: 100%;
-  min-height: 470px;
-  max-height: 668px;
+  min-height: 510px;
+  max-height: 540px;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -349,10 +349,6 @@ input:focus::placeholder {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.map-intaractive  {
-  height: 70vh;
 }
 
 .map-svg {
@@ -710,17 +706,17 @@ footer ul li {
 
 /* Modal Window */
 .modal-window {
-  position: absolute;
-  top: 90px;
-  right: 20px;
-  left: 20px;
-  bottom: 20px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   display: none;
-  z-index: 2;
+  z-index: 9;
   padding: 0;
 }
 
@@ -761,7 +757,6 @@ footer ul li {
     height: calc(80vh - 100vh/50%);
     min-height: 600px;
   }
-
 }
 
 @media screen and (max-width: 1023px) {
@@ -779,7 +774,6 @@ footer ul li {
       "footer footer"
   }
 
-  li,
   li,
   .wrapper .scroll-container {
     width: 98% !important;
@@ -818,34 +812,6 @@ footer ul li {
 
 }
 
-@media screen and (max-width: 700px) {
-  body {
-    grid-template-areas:
-      "header"
-      "map"
-      "global-cases"
-      "country-cases"
-      "date"
-      "death-cases"
-      "recovery-cases"
-      "graph"
-      "footer"
-  }
-
-  .container {
-    width: 100%;
-  }
-
-  .map {
-    width: 100%;
-  }
-
-  .github-links ul,
-  .github-links ul li a {
-    font-size: 14px;
-  }
-}
-
 .full {
   width: 100%;
   height: 100vh;
@@ -860,6 +826,10 @@ footer ul li {
 
 .full .map-intaractive {
   height: 95vh;
+}
+
+.full .map-intaractive-content {
+  max-height: 85vh;
 }
 
 .full .wrapper {
@@ -909,6 +879,11 @@ footer ul li {
 .full .global-cases-counter,
 .full .update-time {
   font-size: 68px;
+}
+
+.full li,
+.full .wrapper .scroll-container {
+  width: calc(100% - 12px) !important;
 }
 
 .map-nav {
@@ -964,4 +939,40 @@ footer ul li {
 .standart > *{
   stroke: #17D0FA;
   fill: transparent;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    grid-template-areas:
+      "header"
+      "map"
+      "global-cases"
+      "country-cases"
+      "date"
+      "death-cases"
+      "recovery-cases"
+      "graph"
+      "footer"
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .map {
+    width: 100%;
+  }
+
+  .github-links ul,
+  .github-links ul li a {
+    font-size: 14px;
+  }
+
+  .full {
+    padding: 10px 4px 10px 20px;
+  }
+
+  .map.full {
+    padding: 10px 20px;
+  }
 }

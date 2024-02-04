@@ -1,7 +1,11 @@
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
   background: var(--dark);
   -webkit-border-radius: 2px;
+}
+
+.container ::-webkit-scrollbar {
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
