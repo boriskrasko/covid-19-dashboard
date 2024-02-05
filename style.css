@@ -346,7 +346,6 @@ input:focus::placeholder {
   justify-content: center;
   overflow: hidden;
   background-color: #000;
-  /* background: url('assets/images/world.svg');  */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

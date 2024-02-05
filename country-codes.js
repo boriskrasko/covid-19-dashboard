@@ -276,7 +276,7 @@ const codes = [
     "Numeric": 162
   },
   {
-    "Country": "Cocos (Keeling) Islands",
+    "Country": "Cocos Islands",
     "Alfa-2-code": "CC",
     "Alfa-3-code": "CCK",
     "Numeric": 166
@@ -294,7 +294,7 @@ const codes = [
     "Numeric": 174
   },
   {
-    "Country": "Congo (the Democratic Republic of the)",
+    "Country": "Congo",
     "Alfa-2-code": "CD",
     "Alfa-3-code": "COD",
     "Numeric": 180
@@ -858,13 +858,13 @@ const codes = [
     "Numeric": 484
   },
   {
-    "Country": "Micronesia (Federated States of)",
+    "Country": "Micronesia",
     "Alfa-2-code": "FM",
     "Alfa-3-code": "FSM",
     "Numeric": 583
   },
   {
-    "Country": "Moldova (the Republic of)",
+    "Country": "Moldova ",
     "Alfa-2-code": "MD",
     "Alfa-3-code": "MDA",
     "Numeric": 498
@@ -1128,7 +1128,7 @@ const codes = [
     "Numeric": 662
   },
   {
-    "Country": "Saint Martin (French part)",
+    "Country": "Saint Martin",
     "Alfa-2-code": "MF",
     "Alfa-3-code": "MAF",
     "Numeric": 663
@@ -1200,7 +1200,7 @@ const codes = [
     "Numeric": 702
   },
   {
-    "Country": "Sint Maarten (Dutch part)",
+    "Country": "Sint Maarten",
     "Alfa-2-code": "SX",
     "Alfa-3-code": "SXM",
     "Numeric": 534
@@ -1434,7 +1434,7 @@ const codes = [
     "Numeric": 548
   },
   {
-    "Country": "Venezuela (Bolivarian Republic of)",
+    "Country": "Venezuela",
     "Alfa-2-code": "VE",
     "Alfa-3-code": "VEN",
     "Numeric": 862
@@ -1446,13 +1446,13 @@ const codes = [
     "Numeric": 704
   },
   {
-    "Country": "Virgin Islands (British)",
+    "Country": "Virgin Islands",
     "Alfa-2-code": "VG",
     "Alfa-3-code": "VGB",
     "Numeric": 92
   },
   {
-    "Country": "Virgin Islands (U.S.)",
+    "Country": "Virgin Islands",
     "Alfa-2-code": "VI",
     "Alfa-3-code": "VIR",
     "Numeric": 850
