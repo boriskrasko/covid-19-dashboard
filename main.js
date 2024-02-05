@@ -42,14 +42,21 @@ for (let i = 0; i < mapNavBtn.length; i++) {
 const totalData = data[data.length - 1];
 const casesListByCounty = document.querySelector('.country-cases-list ul');
 const fragment = document.createDocumentFragment();
+const bookmarkCountyList = document.querySelector('.bookmark-county-list ul');
 data.forEach(item => {
   if (item.id) {
     const li = document.createElement('li');
     li.innerHTML = `<span class="counter">${item.Total || 0}</span><span class="country">${item.Country}</span>`;
     li.setAttribute('data-country', item.Country);
     fragment.appendChild(li);
+
+    const bookmarkItem = document.createElement('li');
+    bookmarkItem.textContent = item.Country;
+    bookmarkItem.dataset.country = item.Country;
+    bookmarkCountyList.appendChild(bookmarkItem);
   }
 });
+
 casesListByCounty.appendChild(fragment);
 const globalCasesCounter = document.querySelector('.global-cases-counter');
 globalCasesCounter.textContent = data[data.length - 1]['Cases'] || 0;
@@ -77,6 +84,7 @@ data.forEach(item => {
     const li = document.createElement('li');
     li.innerHTML = `<span class="counter">${item['Total deaths'] || 0}</span><span class="counter-value"> deaths </span><span class="country"> ${item.Country}</span>`;
     deathCaseFragment.appendChild(li);
+
   }
 });
 deathCasesList.appendChild(deathCaseFragment);
@@ -269,3 +277,8 @@ document.querySelector('.zoom-in').addEventListener('click', () => {
 document.querySelector('.zoom-out').addEventListener('click', () => {
   zoom('out');
 });
+
+
+bookmarkCountyList.querySelectorAll('li').forEach(item => {
+    item.addEventListener('click', handleCountryClick);
+})

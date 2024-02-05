@@ -377,7 +377,7 @@ input:focus::placeholder {
   display: none;
 }
 
-.bookmarks,
+.bookmark,
 .legend,
 .basemaps {
   position: absolute;
@@ -393,7 +393,7 @@ input:focus::placeholder {
   border: 1px solid transparent;
 }
 
-.bookmarks .scroll-container,
+.bookmark .scroll-container,
 .basemaps .scroll-container {
   height: 100px;
 }
@@ -402,17 +402,18 @@ input:focus::placeholder {
   height: 65px;
 }
 
-.bookmarks-county-list li,
+.bookmark-county-list li,
 .legend-list li {
   display: flex;
   align-items: center;
+  margin-right: 10px;
   font-size: 8px;
   line-height: 8px;
   color: rgba(243, 243, 243, 0.9);
   cursor: pointer;
 }
 
-.bookmarks-county-list li:hover,
+.bookmark-county-list li:hover,
 .legend-list li:hover {
   color: var(--dirtyblue);
 }
@@ -463,7 +464,7 @@ input:focus::placeholder {
   color: var(--text)
 }
 
-.bookmarks-select-panel {
+.bookmark-select-panel {
   position: absolute;
   right: 22px;
   bottom: 11px;
@@ -477,7 +478,7 @@ input:focus::placeholder {
   justify-content: space-around;
 }
 
-.bookmarks-select-panel button {
+.bookmark-select-panel button {
   width: 33%;
 }
 
@@ -894,7 +895,7 @@ footer ul li {
   height: 560px
 }
 
-.full .bookmarks .scroll-container,
+.full .bookmark .scroll-container,
 .full .basemaps .scroll-container {
   height: 100px;
 }
@@ -904,7 +905,7 @@ footer ul li {
 }
 
 .full .legend .scroll-container li,
-.full .bookmarks .scroll-container li {
+.full .bookmark .scroll-container li {
   width: 96%;
 }
 
