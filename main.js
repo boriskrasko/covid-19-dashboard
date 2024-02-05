@@ -282,3 +282,25 @@ document.querySelector('.zoom-out').addEventListener('click', () => {
 bookmarkCountyList.querySelectorAll('li').forEach(item => {
     item.addEventListener('click', handleCountryClick);
 })
+
+const searchInput = document.querySelector('#map-');
+
+searchInput.addEventListener('input', () => {
+  const searchText = searchInput.value.toLowerCase().trim();
+
+  document.querySelectorAll('.map-svg svg path').forEach(path => {
+    path.classList.remove('active-country');
+  });
+
+  if (searchText === '') return;
+
+  document.querySelectorAll('.map-svg svg path').forEach(path => {
+    const id = path.id.toLowerCase();
+    const classes = path.getAttribute('class') ? path.getAttribute('class').toLowerCase() : '';
+    const name = path.getAttribute('name') ? path.getAttribute('name').toLowerCase() : '';
+
+    if (id.includes(searchText) || classes.includes(searchText) || name.includes(searchText)) {
+      path.classList.add('active-country');
+    }
+  });
+});
