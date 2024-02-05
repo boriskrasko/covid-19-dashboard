@@ -283,10 +283,10 @@ bookmarkCountyList.querySelectorAll('li').forEach(item => {
     item.addEventListener('click', handleCountryClick);
 })
 
-const searchInput = document.querySelector('#map-search-input');
+const mapSearchInput = document.querySelector('#map-search-input');
 
-searchInput.addEventListener('input', () => {
-  const searchText = searchInput.value.toLowerCase().trim();
+mapSearchInput.addEventListener('input', () => {
+  const searchText = mapSearchInput.value.toLowerCase().trim();
 
   document.querySelectorAll('.map-svg svg path').forEach(path => {
     path.classList.remove('active-country');
@@ -304,3 +304,20 @@ searchInput.addEventListener('input', () => {
     }
   });
 });
+
+const casesSearchInput = document.querySelector('#cases-search-input');
+const countryList = document.querySelectorAll('.country-cases-list li');
+
+casesSearchInput.addEventListener('input', function() {
+    const searchTerm = this.value.trim().toLowerCase();
+
+    countryList.forEach(function(item) {
+        const countryName = item.querySelector('.country').textContent.toLowerCase();
+        if (countryName.includes(searchTerm)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+
