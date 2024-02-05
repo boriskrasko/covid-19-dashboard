@@ -338,3 +338,25 @@ properties.forEach(property => {
 });
 
 dropdown.querySelectorAll('.option')[0].classList.add('selected');
+
+dropdown.querySelectorAll('.option').forEach(option  => {
+  option.addEventListener('click', () => {
+    console.log(option.dataset.value);
+    casesListByCounty.innerHTML = '';
+    fragment.innerHTML = '';
+    const filteredData = data.filter(item => item[option.dataset.value] !== 'N/A');
+    filteredData.sort((a, b) => {
+      return parseFloat(b[option.dataset.value] || 0) - parseFloat(a[option.dataset.value] || 0);
+    });
+    filteredData.forEach(item => {
+      if (item.id) {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="counter">${item[`${option.dataset.value}`] || 0}</span><span class="country">${item.Country}</span>`;
+        li.setAttribute('data-country', item.Country);
+        fragment.appendChild(li);
+      }
+    });
+    casesListByCounty.appendChild(fragment);
+  })
+})
+
