@@ -283,7 +283,7 @@ bookmarkCountyList.querySelectorAll('li').forEach(item => {
     item.addEventListener('click', handleCountryClick);
 })
 
-const searchInput = document.querySelector('#map-');
+const searchInput = document.querySelector('#map-search-input');
 
 searchInput.addEventListener('input', () => {
   const searchText = searchInput.value.toLowerCase().trim();
