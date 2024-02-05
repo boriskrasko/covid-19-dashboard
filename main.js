@@ -174,12 +174,6 @@ mapImage.ondragstart = function () {
   return false;
 };
 
-document.body.addEventListener('mouseover', e => {
-  if (e.target.tagName === 'path') {
-    console.log(e.target.classList.toString() || e.target.id.toString());
-  }
-});
-
 function getAlpha2Code(countryName) {
   const country = codes.find(code => code.Country === countryName);
   return country ? country["Alfa-2-code"] : null;
@@ -208,7 +202,6 @@ casesItemByCounty.forEach(item => {
 function handleCountryClick(event) {
   const countryName = event.currentTarget.dataset.country;
   const alpha2Code = getAlpha2Code(countryName);
-  console.log(alpha2Code);
 
   if (alpha2Code) {
     hideCountyBorders(countryName, alpha2Code);
@@ -354,9 +347,9 @@ dropdown.querySelectorAll('.option').forEach(option  => {
         li.innerHTML = `<span class="counter">${item[`${option.dataset.value}`] || 0}</span><span class="country">${item.Country}</span>`;
         li.setAttribute('data-country', item.Country);
         fragment.appendChild(li);
+        li.addEventListener('click', handleCountryClick);
       }
     });
     casesListByCounty.appendChild(fragment);
   })
 })
-
