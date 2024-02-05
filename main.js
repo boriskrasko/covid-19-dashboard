@@ -321,3 +321,20 @@ casesSearchInput.addEventListener('input', function() {
     });
 });
 
+const countryCasesDropdown = document.querySelector('country-cases options');
+
+const dropdown = document.querySelector('.country-cases .options');
+
+const properties = Object.keys(data[0]).filter(property => property !== 'id' && property !== 'Country');
+
+dropdown.innerHTML = '';
+
+properties.forEach(property => {
+  const option = document.createElement('span');
+  option.classList.add('option');
+  option.setAttribute('data-value', property);
+  option.textContent = property;
+  dropdown.appendChild(option);
+});
+
+dropdown.querySelectorAll('.option')[0].classList.add('selected');

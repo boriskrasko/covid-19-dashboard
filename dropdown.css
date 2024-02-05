@@ -55,7 +55,7 @@
 .option {
   position: relative;
   display: block;
-  padding: 13px 0 13px 2px;
+  padding: 6px 0 6px 2px;
   font-size: 11px;
   line-height: 13px;
   color: var(--text);
