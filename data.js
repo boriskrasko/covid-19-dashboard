@@ -75,7 +75,7 @@ const data = [
     },
     {
         "id": "6",
-        "Country": "S Korea",
+        "Country": "S. Korea",
         "Total": "34571873",
         "Total deaths": "35934",
         "Total recovered": "34535939",
@@ -442,7 +442,7 @@ const data = [
     },
     {
         "id": "32",
-        "Country": "N Korea",
+        "Country": "N. Korea",
         "Total": "4772813",
         "Total deaths": "74",
         "Total recovered": "4772739",
@@ -1313,7 +1313,7 @@ const data = [
     },
     {
         "id": "94",
-        "Country": "Réunion",
+        "Country": "Reunion",
         "Total": "494595",
         "Total deaths": "921",
         "Total recovered": "N/A",
@@ -1356,7 +1356,7 @@ const data = [
     },
     {
         "id": "97",
-        "Country": "Bosnia and Herzegovina",
+        "Country": "Bosnia",
         "Total": "403558",
         "Total deaths": "16382",
         "Total recovered": "379084",
@@ -1397,7 +1397,7 @@ const data = [
     },
     {
         "id": "100",
-        "Country": "North Macedonia",
+        "Country": "Macedonia", 
         "Total": "350244",
         "Total deaths": "9963",
         "Total recovered": "337068",

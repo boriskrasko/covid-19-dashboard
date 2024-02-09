@@ -46,8 +46,13 @@ const bookmarkCountyList = document.querySelector('.bookmark-county-list ul');
 data.forEach(item => {
   if (item.id) {
     const li = document.createElement('li');
-    li.innerHTML = `<span class="counter">${item.Total || 0}</span><span class="country">${item.Country}</span>`;
     li.setAttribute('data-country', item.Country);
+    li.innerHTML = `<span class="counter">${item.Total || 0}</span><span class="country">${item.Country}</span>`;
+    if (getAlpha2Code(item.Country)) {
+      const flagUrl = `flags/${getAlpha2Code(item.Country).toLowerCase()}.svg`;
+      const flagImg = `<img class="flag" src="${flagUrl}">`;
+      li.innerHTML += flagImg;
+    }
     fragment.appendChild(li);
 
     const bookmarkItem = document.createElement('li');
@@ -214,7 +219,14 @@ function handleCountryClick(event) {
 }
 
 function updateGlobalCounterRecovery(countryName) {
-  document.querySelector('.global-counter_recovery').textContent = countryName || 'Global';
+  const globalCounterElem = document.querySelector('.global-counter_recovery');
+  globalCounterElem.innerHTML = countryName || 'Global';
+
+  if (countryName && getAlpha2Code(countryName)) {
+    const flagUrl = `flags/${getAlpha2Code(countryName).toLowerCase()}.svg`;
+    const flagImg = `<img src="${flagUrl}">`;
+    globalCounterElem.innerHTML += flagImg;
+  }
 }
 
 function findCountryByName(countryName) {
