@@ -20,6 +20,7 @@
 li {
   border: 1px solid transparent;
   cursor: default;
+  position: relative;
 }
 
 button,
@@ -123,7 +124,7 @@ body {
   background: var(--dark);
   color: var(--text);
   margin-top: 4px;
-  padding: 5px 0 5px 7.62px;
+  padding: 5px 32px 5px 7.62px;
   border-radius: 6px;
 }
 
@@ -572,6 +573,14 @@ input:focus::placeholder {
 .global-counter_recovery {
   font-size: 26px;
   color: #fffd;
+  display: flex;
+  align-items: center;
+  row-gap: 8px;
+}
+
+.global-counter_recovery img {
+  width: 24px;
+  margin-left: 10px;
 }
 
 .recovery-cases-list li span {
@@ -750,6 +759,7 @@ footer ul li {
 
   .container {
     min-width: 25%;
+    overflow: hidden;
   }
 
   .container_l {
@@ -975,4 +985,17 @@ footer ul li {
   .map.full {
     padding: 10px 20px;
   }
+}
+
+.flag {
+  width: 16px;
+  position: absolute;
+  right: 8px;
+}
+
+.flag-copy {
+  color: #aaa;
+  font-size: 8px;
+  float: right;
+  padding: 8px;
 }

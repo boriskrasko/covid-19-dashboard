@@ -162,7 +162,7 @@ const codes = [
     "Numeric": 535
   },
   {
-    "Country": "Bosnia and Herzegovina",
+    "Country": "Bosnia",
     "Alfa-2-code": "BA",
     "Alfa-3-code": "BIH",
     "Numeric": 70
@@ -1008,7 +1008,7 @@ const codes = [
     "Numeric": 585
   },
   {
-    "Country": "Palestine, State of",
+    "Country": "Palestine",
     "Alfa-2-code": "PS",
     "Alfa-3-code": "PSE",
     "Numeric": 275
@@ -1074,7 +1074,7 @@ const codes = [
     "Numeric": 634
   },
   {
-    "Country": "Republic of North Macedonia",
+    "Country": "Macedonia", 
     "Alfa-2-code": "MK",
     "Alfa-3-code": "MKD",
     "Numeric": 807
@@ -1098,13 +1098,13 @@ const codes = [
     "Numeric": 646
   },
   {
-    "Country": "Réunion",
+    "Country": "Reunion",
     "Alfa-2-code": "RE",
     "Alfa-3-code": "REU",
     "Numeric": 638
   },
   {
-    "Country": "Saint Barthélemy",
+    "Country": "Saint Barthelemy",
     "Alfa-2-code": "BL",
     "Alfa-3-code": "BLM",
     "Numeric": 652
