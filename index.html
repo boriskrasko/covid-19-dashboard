@@ -99,8 +99,6 @@
             <div class="options">
               <span class="option selected" data-value="cumulative">Cumulative Cases</span>
               <span class="option" data-value="active">Active Cases</span>
-              <span class="option" data-value="incidence-rate">Incidence Rate</span>
-              <span class="option" data-value="fatality-ratio">Case-Fatality Ratio</span>
               <span class="option" data-value="testing-rate">Testing Rate</span>
             </div>
           </div>
@@ -1235,13 +1233,25 @@
         <button>
           <img src="assets/icons/arrow-left.svg" alt="arrow" />
         </button>
-        <span>Global Chart</span>
+        <span class="chart-current">Global Chart</span>
         <button>
           <img src="assets/icons/arrow-right.svg" alt="arrow" />
         </button>
       </div>
       <div class="chart">
-        <svg viewBox="0 0 500 100" class="chart">
+        <svg viewBox="0 0 600 200" class="chart">
+          <line x1="20" y1="0" x2="20" y2="400" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="100" y1="0" x2="100" y2="400" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="180" y1="0" x2="180" y2="400" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="260" y1="0" x2="260" y2="400" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="340" y1="0" x2="340" y2="400" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="420" y1="0" x2="420" y2="400" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="500" y1="0" x2="500" y2="400" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="0" y1="20" x2="600" y2="20" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="0" y1="100" x2="600" y2="100" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="0" y1="180" x2="600" y2="180" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="0" y1="260" x2="600" y2="260" stroke="#1C2E3B" stroke-dasharray="5" />
+          <line x1="0" y1="340" x2="600" y2="340" stroke="#1C2E3B" stroke-dasharray="5" />
           <polyline
             fill=""
             stroke="#17D0FA"
@@ -1270,6 +1280,11 @@
               400,80
               420,70
               440,60
+              460,90
+              520,70
+              560,40
+              580,60
+              600,90
             "
           />
         </svg>
@@ -1299,6 +1314,7 @@
     </footer>
     <div class="modal-window"></div>
     <script src="data.js"></script>
+    <script src="global-min.js"></script>
     <script src="country-codes.js"></script>
     <script src="main.js"></script>
     <script src="dropdown.js"></script>

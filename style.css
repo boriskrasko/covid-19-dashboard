@@ -618,12 +618,16 @@ input:focus::placeholder {
 }
 
 .graph {
+  width: 100%;
   align-items: center;
   justify-content: space-around;
 }
 
 .graph .heading {
+  width: 90%;
+  margin: 0 auto 8px;
   display: flex;
+  justify-content: space-between;
 }
 
 .chart {
@@ -937,7 +941,7 @@ footer ul li {
 }
 
 #dark-blue {
-  background-color: #1C2E3B;
+  background-color: var(--dark);
 }
 
 #contrast {
@@ -1000,4 +1004,9 @@ footer ul li {
   font-size: 8px;
   float: right;
   padding: 8px;
+}
+
+.chart {
+  fill: transparent;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
 }
