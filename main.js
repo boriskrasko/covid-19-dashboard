@@ -357,6 +357,11 @@ dropdown.querySelectorAll('.option').forEach(option  => {
         const li = document.createElement('li');
         li.innerHTML = `<span class="counter">${item[`${option.dataset.value}`] || 0}</span><span class="country">${item.Country}</span>`;
         li.setAttribute('data-country', item.Country);
+        if (getAlpha2Code(item.Country)) {
+          const flagUrl = `flags/${getAlpha2Code(item.Country).toLowerCase()}.svg`;
+          const flagImg = `<img class="flag" src="${flagUrl}">`;
+          li.innerHTML += flagImg;
+        }
         fragment.appendChild(li);
         li.addEventListener('click', handleCountryClick);
       }
@@ -392,5 +397,86 @@ function handleOptionClick(option) {
 deathCasesDropdown.querySelectorAll('.option').forEach(option => {
   option.addEventListener('click', () => {
     handleOptionClick(option);
+  });
+});
+
+const mapDropdown = document.querySelector('.map .options');
+const colors = {
+  'active': '#f42',
+  'testing-rate': 'green'
+};
+
+mapDropdown.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', () => {
+    const dataType = option.dataset.value;
+    if (dataType === 'active' || dataType === 'testing-rate') {
+      document.querySelectorAll('path').forEach(p => {
+        let cName = p.getAttribute('name') || p.classList[0];
+        data.forEach(item => {
+          if (item.Country == cName) {
+            let radius;
+            if (dataType === 'active') {
+              radius = item.Total / item.Population * 20;
+            } else if (dataType === 'testing-rate') {
+              radius = item['Total tests'] / item.Population;
+            }
+            if (!isNaN(radius) && isFinite(radius)) {
+              radius = Math.min(Math.max(radius, 1), 12);
+              const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+              svg.setAttribute('name', cName)
+              const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+              const pathBoundingBox = p.getBBox();
+              const circleCenterX = pathBoundingBox.x + pathBoundingBox.width / 2;
+              const circleCenterY = pathBoundingBox.y + pathBoundingBox.height / 2;
+              circle.setAttribute("cx", circleCenterX);
+              circle.setAttribute("cy", circleCenterY);
+              circle.setAttribute("r", radius);
+              circle.setAttribute("fill", colors[dataType]);
+              svg.appendChild(circle);
+              p.parentNode.appendChild(svg);
+            }
+          }
+        });
+      });
+    } else {
+      document.querySelectorAll('svg svg').forEach(p => {
+        p.innerHTML = '';
+      });
+    }
+  });
+});
+
+function createPaintChart(data, value) {
+  const chartContainer = document.querySelector('.chart');
+  const svg = chartContainer.querySelector('svg');
+
+  const points = [];
+  for (const key in data) {
+      const newDataPoint = data[key];
+      if (newDataPoint[value] !== "") {
+          points.push(parseFloat(newDataPoint[value]));
+      }
+  }
+
+  const maxValue = Math.max(...points);
+  const scaledPoints = points.map(value => (value / maxValue) * 100);
+
+  const pointsString = scaledPoints.map((value, index) => `${index * 20},${100 - value}`).join('\n');
+
+  const polyline = svg.querySelector('polyline');
+  polyline.setAttribute('points', pointsString);
+}
+
+createPaintChart(global, 'total_cases');
+document.querySelector('.chart-current').textContent = 'total cases';
+
+const total = ['total_cases', 'total_deaths', 'total_cases_per_million', 'total_deaths_per_million', 'total_boosters', 'total_vaccinations_per_hundred', 'total_boosters_per_hundred', 'population_density'];
+let id = 0;
+
+document.querySelectorAll('.graph-heading button').forEach((button, i) => {
+  button.addEventListener('click', () => {
+    id = (i ? id + 1 : id - 1 + total.length) % total.length;
+    document.querySelector('.chart-current').textContent = total[id].replaceAll('_', ' ');
+    createPaintChart(global, total[id]);
   });
 });
