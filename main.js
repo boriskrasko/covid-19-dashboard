@@ -110,9 +110,17 @@ const mapImage = document.querySelector('.map-svg svg');
 let width = 1;
 document.querySelector('.map-svg').addEventListener('wheel', (event) => {
   event.preventDefault();
+  const rect = mapImage.getBoundingClientRect();
+  const mouseX = event.clientX - rect.left;
+  const mouseY = event.clientY - rect.top;
+  const offsetX = mouseX / rect.width;
+  const offsetY = mouseY / rect.height;
   width += event.deltaY * -0.01;
   width = Math.min(Math.max(0.5, width), 4);
   mapImage.style.width = `${width * 1000}px`;
+  const newRect = mapImage.getBoundingClientRect();
+  mapImage.style.left = `${parseFloat(mapImage.style.left) - (newRect.width - rect.width) * offsetX}px`;
+  mapImage.style.top = `${parseFloat(mapImage.style.top) - (newRect.height - rect.height) * offsetY}px`;
 });
 
 function getCoords(elem) {
@@ -282,7 +290,6 @@ document.querySelector('.zoom-in').addEventListener('click', () => {
 document.querySelector('.zoom-out').addEventListener('click', () => {
   zoom('out');
 });
-
 
 bookmarkCountyList.querySelectorAll('li').forEach(item => {
     item.addEventListener('click', handleCountryClick);
