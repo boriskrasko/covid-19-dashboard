@@ -277,10 +277,19 @@ basemaps.querySelectorAll('li').forEach(li => {
 })
 
 function zoom(direction) {
-  const step = 500; 
+  const step = 500;
+  const rect = mapImage.getBoundingClientRect();
+  const mouseX = rect.width / 2;
+  const mouseY = rect.height / 2;
+  const offsetX = mouseX / rect.width;
+  const offsetY = mouseY / rect.height;
   const currentWidth = mapImage.clientWidth;
   const newWidth = direction === 'in' ? currentWidth + step : currentWidth - step;
   mapImage.style.width = `${newWidth}px`;
+
+  const newRect = mapImage.getBoundingClientRect();
+  mapImage.style.left = `${parseFloat(mapImage.style.left) - (newRect.width - rect.width) * offsetX}px`;
+  mapImage.style.top = `${parseFloat(mapImage.style.top) - (newRect.height - rect.height) * offsetY}px`;
 }
 
 document.querySelector('.zoom-in').addEventListener('click', () => {
