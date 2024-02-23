@@ -978,7 +978,8 @@ footer ul li {
   stroke: #fff;
 }
 
-#standard .active-country {
+#standard .active-country,
+.light #standard .active-country {
   fill: #17D0FA;
 }
 
@@ -998,7 +999,7 @@ footer ul li {
 }
 
 #blue2 .active-country {
-  fill: #eee;
+  fill: #ddd;
 }
 
 #blue2 {
@@ -1015,6 +1016,11 @@ footer ul li {
 
 #standard > * {
   stroke: #17D0FA;
+  fill: transparent;
+}
+
+.light #standard > * {
+  stroke: #111;
   fill: transparent;
 }
 
