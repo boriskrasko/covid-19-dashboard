@@ -1,0 +1,41 @@
+.toggle-btn {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.toggle-btn input {
+  display: block;
+  opacity: 0;
+}
+
+.toggle-btn label {
+  position: relative;
+  width: 45px;
+  height: 18px;
+  display: inline-block;
+  background: var(--fill);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.toggle-btn label:after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  background: var(--blue);
+  border-radius: 50%;
+}
+
+.toggle-btn input:checked + label {
+  background: #fff;
+}
+
+.toggle-btn input:checked + label:after {
+  left: auto;
+  left: 4px;
+}
