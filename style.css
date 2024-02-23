@@ -567,35 +567,35 @@ input:focus::placeholder {
 }
 
 [data-map-style="standard"] .box {
-  background-image: url('assets/img/standard.png');
+  background-image: url('assets/img/standard.jpg');
 }
 
 [data-map-style="blue"] .box {
-  background-image: url('assets/img/blue.png');
+  background-image: url('assets/img/blue.jpg');
 }
 
 [data-map-style="contrast"] .box {
-  background-image: url('assets/img/contrast.png');
+  background-image: url('assets/img/contrast.jpg');
 }
 
 [data-map-style="blue2"] .box {
-  background-image: url('assets/img/blue2.png');
+  background-image: url('assets/img/blue2.jpg');
 }
 
 .light [data-map-style="standard"] .box {
-  background-image: url('assets/img/light/standard.png');
+  background-image: url('assets/img/light/standard.jpg');
 }
 
 .light [data-map-style="blue"] .box {
-  background-image: url('assets/img/light/blue.png');
+  background-image: url('assets/img/light/blue.jpg');
 }
 
 .light [data-map-style="contrast"] .box {
-  background-image: url('assets/img/light/contrast.png');
+  background-image: url('assets/img/light/contrast.jpg');
 }
 
 .light [data-map-style="blue2"] .box {
-  background-image: url('assets/img/light/blue2.png');
+  background-image: url('assets/img/light/blue2.jpg');
 }
 
 .box img {
