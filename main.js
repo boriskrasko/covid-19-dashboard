@@ -496,3 +496,7 @@ document.querySelectorAll('.graph-heading button').forEach((button, i) => {
     createPaintChart(global, total[id]);
   });
 });
+
+checkbox.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+})
